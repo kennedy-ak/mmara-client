@@ -11,20 +11,19 @@ import {
   Gavel,
   Users,
   ChevronRight,
-  Check,
-  Sparkles
+  Check
 } from 'lucide-react';
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+      <nav className="border-b bg-background sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-green-600 flex items-center justify-center">
-                <Scale className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <Scale className="w-6 h-6 text-primary-foreground" />
               </div>
               <span className="text-xl font-bold">MMara</span>
             </Link>
@@ -44,7 +43,7 @@ export default function LandingPage() {
                 <Button variant="ghost" size="sm">Sign In</Button>
               </Link>
               <Link href="/register">
-                <Button size="sm" className="bg-gradient-to-r from-amber-500 to-green-600 hover:from-amber-600 hover:to-green-700">
+                <Button size="sm">
                   Get Started
                 </Button>
               </Link>
@@ -54,17 +53,16 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 lg:py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-50/50 to-transparent dark:from-amber-950/20" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <section className="py-20 lg:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-200 text-sm font-medium mb-6">
-              <Sparkles className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-foreground text-sm font-medium mb-6">
+              <Zap className="w-4 h-4" />
               AI-Powered Legal First-Aid for Ghanaians
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
               Know Your Rights,{" "}
-              <span className="bg-gradient-to-r from-amber-600 to-green-600 bg-clip-text text-transparent">
+              <span className="text-primary">
                 Anytime, Anywhere
               </span>
             </h1>
@@ -75,7 +73,7 @@ export default function LandingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/register">
-                <Button size="lg" className="bg-gradient-to-r from-amber-500 to-green-600 hover:from-amber-600 hover:to-green-700 text-lg px-8">
+                <Button size="lg" className="text-lg px-8">
                   Start Free Trial
                   <ChevronRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -94,15 +92,15 @@ export default function LandingPage() {
           {/* Stats */}
           <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16 pt-16 border-t">
             <div className="text-center">
-              <div className="text-3xl font-bold text-amber-600">500+</div>
+              <div className="text-3xl font-bold text-primary">500+</div>
               <div className="text-sm text-muted-foreground">Legal Sections</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-green-600">24/7</div>
+              <div className="text-3xl font-bold text-primary">24/7</div>
               <div className="text-sm text-muted-foreground">Availability</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-blue-600">Instant</div>
+              <div className="text-3xl font-bold text-primary">Instant</div>
               <div className="text-sm text-muted-foreground">Responses</div>
             </div>
           </div>
@@ -110,7 +108,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 lg:py-32 bg-muted/50">
+      <section id="features" className="py-20 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -127,37 +125,31 @@ export default function LandingPage() {
               icon={<Scale className="w-6 h-6" />}
               title="Criminal Law Knowledge"
               description="Access information about Criminal Act 29, Criminal Procedure Code, and your rights during arrests and detentions."
-              color="from-red-500 to-pink-600"
             />
             <FeatureCard
               icon={<Gavel className="w-6 h-6" />}
               title="Traffic Regulations"
               description="Understand Road Traffic Acts, traffic stops, vehicle searches, and penalties for various offenses."
-              color="from-blue-500 to-cyan-600"
             />
             <FeatureCard
               icon={<ShieldCheck className="w-6 h-6" />}
               title="Safety Guards"
               description="Built-in safety mechanisms identify emergency situations and provide appropriate guidance and disclaimers."
-              color="from-green-500 to-emerald-600"
             />
             <FeatureCard
               icon={<MessageSquare className="w-6 h-6" />}
               title="Natural Conversations"
               description="Chat naturally with MMara. Ask questions in plain English and get clear, easy-to-understand answers."
-              color="from-purple-500 to-violet-600"
             />
             <FeatureCard
               icon={<BookOpen className="w-6 h-6" />}
               title="Legal Citations"
               description="Every response includes specific legal citations - Acts, Sections, and relevant case law references."
-              color="from-amber-500 to-orange-600"
             />
             <FeatureCard
               icon={<Zap className="w-6 h-6" />}
               title="Instant Answers"
               description="Powered by advanced AI and optimized retrieval systems for lightning-fast legal information."
-              color="from-yellow-500 to-amber-600"
             />
           </div>
         </div>
@@ -199,7 +191,7 @@ export default function LandingPage() {
       </section>
 
       {/* Legal Coverage */}
-      <section className="py-20 lg:py-32 bg-muted/50">
+      <section className="py-20 lg:py-32 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -244,12 +236,12 @@ export default function LandingPage() {
       {/* CTA Section */}
       <section className="py-20 lg:py-32">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <Card className="max-w-4xl mx-auto bg-gradient-to-br from-amber-500 to-green-600 border-0 text-white">
+          <Card className="max-w-4xl mx-auto bg-primary text-primary-foreground border-0">
             <CardContent className="p-12 text-center">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 Know Your Rights Today
               </h2>
-              <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
                 Join thousands of Ghanaians who use MMara to understand their legal rights.
                 Start with our free tier - no credit card required.
               </p>
@@ -261,7 +253,7 @@ export default function LandingPage() {
                   </Button>
                 </Link>
                 <Link href="/about">
-                  <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent border-white text-white hover:bg-white/10">
+                  <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
                     Learn More
                   </Button>
                 </Link>
@@ -277,8 +269,8 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-4 gap-8">
             <div>
               <Link href="/" className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-green-600 flex items-center justify-center">
-                  <Scale className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                  <Scale className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <span className="font-bold">MMara</span>
               </Link>
@@ -321,18 +313,16 @@ export default function LandingPage() {
 function FeatureCard({
   icon,
   title,
-  description,
-  color
+  description
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
-  color: string;
 }) {
   return (
-    <Card className="border-2 hover:border-primary/50 transition-colors">
+    <Card className="border hover:border-primary/50 transition-colors">
       <CardContent className="p-6">
-        <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${color} flex items-center justify-center text-white mb-4`}>
+        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
           {icon}
         </div>
         <h3 className="font-semibold text-lg mb-2">{title}</h3>
@@ -356,10 +346,10 @@ function StepCard({
   return (
     <Card className="relative">
       <CardContent className="p-6 text-center">
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-green-600 flex items-center justify-center text-white font-bold text-sm">
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
           {number}
         </div>
-        <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4 text-amber-600">
+        <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto mb-4 text-primary">
           {icon}
         </div>
         <h3 className="font-semibold text-lg mb-2">{title}</h3>
@@ -382,7 +372,7 @@ function CoverageCard({
     <Card>
       <CardContent className="p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-lg bg-amber-100 dark:bg-amber-950 flex items-center justify-center text-amber-600">
+          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
             {icon}
           </div>
           <h3 className="font-semibold text-lg">{title}</h3>
@@ -390,7 +380,7 @@ function CoverageCard({
         <ul className="space-y-3">
           {items.map((item, index) => (
             <li key={index} className="flex items-start gap-3 text-sm">
-              <Check className="w-5 h-5 text-green-600 shrink-0" />
+              <Check className="w-5 h-5 text-primary shrink-0" />
               <span className="text-muted-foreground">{item}</span>
             </li>
           ))}

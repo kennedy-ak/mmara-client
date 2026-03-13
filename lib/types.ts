@@ -220,6 +220,96 @@ export const DOC_TYPES = [
 
 export type DocType = typeof DOC_TYPES[number]['value'];
 
+// ==================== Bug Report Types ====================
+export interface BugReport {
+  id: number;
+  title: string;
+  description: string;
+  bug_type: 'ui' | 'api' | 'performance' | 'accuracy' | 'other';
+  severity: 'low' | 'medium' | 'high' | 'critical';
+  steps_to_reproduce?: string;
+  expected_behavior?: string;
+  actual_behavior?: string;
+  device_info?: string;
+  app_version?: string;
+  status: 'open' | 'in_progress' | 'resolved' | 'closed';
+  resolution_notes?: string;
+  user_id?: number;
+  user_email?: string;
+  user_name?: string;
+  assigned_to?: number;
+  assignee_name?: string;
+  admin_responded_at?: string;
+  admin_responded_by?: number;
+  admin_responded_by_name?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface BugReportListResponse {
+  items: BugReport[];
+  total: number;
+  page: number;
+  page_size: number;
+  total_pages: number;
+}
+
+export interface BugStats {
+  total_bugs: number;
+  open_bugs: number;
+  in_progress_bugs: number;
+  resolved_bugs: number;
+  closed_bugs: number;
+  critical_bugs: number;
+  high_bugs: number;
+  medium_bugs: number;
+  low_bugs: number;
+  by_severity: Record<string, number>;
+  by_type: Record<string, number>;
+  by_status: Record<string, number>;
+  recent_count: number;
+}
+
+export interface BugReportCreate {
+  title: string;
+  description: string;
+  bug_type: string;
+  severity: string;
+  steps_to_reproduce?: string;
+  expected_behavior?: string;
+  actual_behavior?: string;
+  device_info?: string;
+  app_version?: string;
+}
+
+export interface BugReportUpdate {
+  status: string;
+  resolution_notes?: string;
+  assigned_to?: number;
+}
+
+export const BUG_TYPES = [
+  { value: 'ui', label: 'UI/Design', description: 'User interface issues' },
+  { value: 'api', label: 'API/Connection', description: 'Backend or network issues' },
+  { value: 'performance', label: 'Performance', description: 'Speed or responsiveness' },
+  { value: 'accuracy', label: 'Response Accuracy', description: 'AI response quality' },
+  { value: 'other', label: 'Other', description: 'Other issues' },
+] as const;
+
+export const BUG_SEVERITIES = [
+  { value: 'low', label: 'Low', color: 'bg-green-500' },
+  { value: 'medium', label: 'Medium', color: 'bg-yellow-500' },
+  { value: 'high', label: 'High', color: 'bg-orange-500' },
+  { value: 'critical', label: 'Critical', color: 'bg-red-500' },
+] as const;
+
+export const BUG_STATUSES = [
+  { value: 'open', label: 'Open', color: 'bg-blue-500' },
+  { value: 'in_progress', label: 'In Progress', color: 'bg-purple-500' },
+  { value: 'resolved', label: 'Resolved', color: 'bg-green-500' },
+  { value: 'closed', label: 'Closed', color: 'bg-gray-500' },
+] as const;
+
 // ==================== Feedback Types ====================
 export interface FeedbackItem {
   id: number;

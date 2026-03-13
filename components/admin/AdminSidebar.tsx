@@ -21,6 +21,7 @@ import {
   Menu,
   Shield,
   MessageSquare,
+  Bug,
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { toast } from 'sonner';
@@ -29,6 +30,7 @@ const navItems = [
   { label: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { label: 'Documents', href: '/admin/documents', icon: FileText },
   { label: 'Feedback', href: '/admin/feedback', icon: MessageSquare },
+  { label: 'Bug Reports', href: '/admin/bugs', icon: Bug },
   { label: 'Retrieval Test', href: '/admin/retrieval', icon: Search },
 ];
 

@@ -14,6 +14,10 @@ import {
   FeedbackListResponse,
   FeedbackDetailResponse,
   FeedbackStats,
+  BugReport,
+  BugReportListResponse,
+  BugReportUpdate,
+  BugStats,
 } from './types';
 
 const ADMIN_BASE = '/admin';
@@ -200,6 +204,59 @@ export const adminService = {
       params,
       responseType: 'blob',
     });
+    return response.data;
+  },
+
+  // ==================== Bug Report Management ====================
+
+  /**
+   * List bug reports with pagination and filters
+   */
+  async listBugs(params: {
+    page?: number;
+    page_size?: number;
+    status?: string;
+    severity?: string;
+    bug_type?: string;
+  } = {}): Promise<BugReportListResponse> {
+    const response = await apiClient.get<BugReportListResponse>(
+      `${ADMIN_BASE}/bug-reports`,
+      { params }
+    );
+    return response.data;
+  },
+
+  /**
+   * Get bug report detail
+   */
+  async getBugDetail(bugId: number): Promise<BugReport> {
+    const response = await apiClient.get<BugReport>(
+      `${ADMIN_BASE}/bug-reports/${bugId}`
+    );
+    return response.data;
+  },
+
+  /**
+   * Update bug status and optionally add resolution notes or assign
+   */
+  async updateBugStatus(
+    bugId: number,
+    update: BugReportUpdate
+  ): Promise<BugReport> {
+    const response = await apiClient.patch<BugReport>(
+      `${ADMIN_BASE}/bug-reports/${bugId}/status`,
+      update
+    );
+    return response.data;
+  },
+
+  /**
+   * Get bug statistics
+   */
+  async getBugStats(): Promise<BugStats> {
+    const response = await apiClient.get<BugStats>(
+      `${ADMIN_BASE}/bug-reports/stats`
+    );
     return response.data;
   },
 };
